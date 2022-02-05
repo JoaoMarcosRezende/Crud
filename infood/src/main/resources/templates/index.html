@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <title>Infood</title> 
+    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="icon" href="https://uploaddeimagens.com.br/images/003/707/782/full/i.png?1644041513">
+</head>
+
+<body>
+
+    <h1>Lista de Funcionários</h1>
+
+    <h3><a href="/cadastrarFuncionario" class="button">Cadastrar Funcionário</a></h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Cargo</th>
+                <th>Deletar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="funcionario : ${funcionarios}">
+                <td><span th:text="${funcionario.nome}"></span></td>
+                <td><span th:text="${funcionario.cpf}"></span></td>
+                <td><span th:text="${funcionario.cargo}"></span></td>
+                <td><a th:href="${(#mvc.url('EC#deletarFuncionario').arg(0, funcionario.codigo)).build()}">Deletar</a></td>
+			</tr>
+		</tbody>
+	
+	</table>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
+</body>
+
+
+</html>
